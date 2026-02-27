@@ -1,3 +1,0 @@
-api_key="sk-3bec25d867714a8a86b32c62a355ed77"
-TAVILY_API_KEY = "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"
-WEATHER_API_KEY = 'b804c54228bfa5db483db99df73153e5'
