@@ -33,7 +33,8 @@ from tools.scientific_plot_tool import scientific_plot_tool
 # 读取配置
 with open("config/config.yaml", "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
-
+with open("config/api_keys.yaml", "r", encoding="utf-8") as f:
+    api_config = yaml.safe_load(f)
 # agent 配置
 agent_config = config['agent_config']
 MAX_AGENT_TURNS = agent_config["max_agent_turns"]
@@ -41,10 +42,9 @@ default_root_dir = agent_config["default_root_dir"]
 
 # 模型配置
 llm_config = config['llm_config']
-api_key = llm_config["api_key"]
 base_url = llm_config["base_url"]
 model_name = llm_config["model_name"]
-
+api_key = api_config["llm_config"]["api_key"]
 # 自定义工具配置
 dynamic_tools_config = config['dynamic_tools_config']
 REGISTRY_PATH = dynamic_tools_config["registry_path"]

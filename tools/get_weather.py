@@ -4,7 +4,7 @@ import requests
 from langchain_core.tools import tool
 import yaml
 
-with open("config/config.yaml", "r", encoding="utf-8") as f:
+with open("config/api_keys.yaml", "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 tool_config = config.get("tool_config", {})
 api_key = tool_config.get("weather_api_key", "")

@@ -9,7 +9,6 @@ message_config:
   message_save_path: "/home/Agent_Assistant/conversation_history.json"
 
 llm_config:
-  api_key: "sk-3bec25d867714a8a86b32c62a355ed77"
   base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
   model_name: "qwen-flash"
   temperature: 0.7
@@ -23,6 +22,3 @@ tts_config:
   save_root_path: audio
   host: 172.22.128.1
   port: 50007
-
-tool_config:
-  weather_api_key: 'b804c54228bfa5db483db99df73153e5'

@@ -1,3 +1,5 @@
+# 已作废
+
 from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
@@ -21,7 +23,7 @@ from tools.get_weather import get_weather
 
 
 llm = ChatOpenAI(
-    api_key="sk-3bec25d867714a8a86b32c62a355ed77", # type: ignore
+    api_key="your api key", # type: ignore
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
     model="qwen-flash", 
 )
