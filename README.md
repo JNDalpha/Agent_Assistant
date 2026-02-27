@@ -96,5 +96,6 @@ python play_sound.py
 
 提升工具安全与 sandbox 功能，实现稳定的长期运行
 
-💡 作者: JNDalpha，Ianqian 
+---
+💡 作者: JNDalpha，Ianqian   
 📅 创建时间: 2026
