@@ -1,12 +1,16 @@
 from pydantic import BaseModel, Field
 from langchain_core.tools import tool
-from langchain_openai import ChatOpenAI
 from openai import OpenAI
 from pathlib import Path
 import base64
-import tempfile
 import cv2
+import yaml
 MAX_SIZE = 500
+with open("config/api_keys.yaml", "r", encoding="utf-8") as f:
+    config = yaml.safe_load(f)
+llm_config = config['llm_config']
+api_key = llm_config["api_key"]
+
 
 def image_to_data_url(image_path: str) -> str:
     path = Path(image_path)
@@ -45,7 +49,7 @@ def vision_analyze(image_path: str, question: str) -> str:
     client = OpenAI(
         # 若没有配置环境变量，请用阿里云百炼API Key将下行替换为：api_key="sk-xxx",
         # 各地域的API Key不同。获取API Key：https://help.aliyun.com/zh/model-studio/get-api-key
-        api_key='sk-3bec25d867714a8a86b32c62a355ed77',
+        api_key = api_key
         # 以下为北京地域的 base_url，若使用弗吉尼亚地域模型，需要将base_url换成https://dashscope-us.aliyuncs.com/compatible-mode/v1
         # 若使用新加坡地域的模型，需将base_url替换为：https://dashscope-intl.aliyuncs.com/compatible-mode/v1
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
