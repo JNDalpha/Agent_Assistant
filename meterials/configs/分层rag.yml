@@ -1,0 +1,2214 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 分层rag
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: zeroz-lab/milvus:0.1.4@ae1e31b6454d7f8ad8e7a612aab0d7b95f3aa8be59cb1465c38ed80a5cb4bf7d
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.1.20@e2b981aacf0be896ed56b7a529023b8d049a2388df54b06bd2956fb12d1ad9ab
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: siyu/text_embedding_vector_client:0.0.3@e90a5be1b6a020ad9d56fcdac59d685f861f8d3bb00a6cd8d5bc7a82bd8ab2da
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1770530828625-source-1770531254551-target
+      selected: false
+      source: '1770530828625'
+      sourceHandle: source
+      target: '1770531254551'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1770531254551-true-1770531636860-target
+      selected: false
+      source: '1770531254551'
+      sourceHandle: 'true'
+      target: '1770531636860'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: code
+      id: 1770531636860-source-1770531616893-target
+      selected: false
+      source: '1770531636860'
+      sourceHandle: source
+      target: '1770531616893'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1770531616893-source-1770532821746-target
+      selected: false
+      source: '1770531616893'
+      sourceHandle: source
+      target: '1770532821746'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1770532821746-source-1770532750388-target
+      selected: false
+      source: '1770532821746'
+      sourceHandle: source
+      target: '1770532750388'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1770532750388-source-1770533035797-target
+      selected: false
+      source: '1770532750388'
+      sourceHandle: source
+      target: '1770533035797'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1770531616893-source-1770533035797-target
+      selected: false
+      source: '1770531616893'
+      sourceHandle: source
+      target: '1770533035797'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1770533035797-source-1770532959953-target
+      selected: false
+      source: '1770533035797'
+      sourceHandle: source
+      target: '1770532959953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1770531254551-false-1770536565447-target
+      selected: false
+      source: '1770531254551'
+      sourceHandle: 'false'
+      target: '1770536565447'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1770536565447-source-1770537160426-target
+      selected: false
+      source: '1770536565447'
+      sourceHandle: source
+      target: '1770537160426'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1770531254551-false-1770539645070-target
+      source: '1770531254551'
+      sourceHandle: 'false'
+      target: '1770539645070'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1770539645070-source-1770539758396-target
+      source: '1770539645070'
+      sourceHandle: source
+      target: '1770539758396'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1770537160426-source-1770540034386-target
+      source: '1770537160426'
+      sourceHandle: source
+      target: '1770540034386'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: loop
+      id: 1770540034386-source-1770540485305-target
+      source: '1770540034386'
+      sourceHandle: source
+      target: '1770540485305'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: loop
+      id: 1770539758396-source-1770540485305-target
+      source: '1770539758396'
+      sourceHandle: source
+      target: '1770540485305'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1770540485305'
+        sourceType: loop-start
+        targetType: code
+      id: 1770540485305start-source-1770540558676-target
+      source: 1770540485305start
+      sourceHandle: source
+      target: '1770540558676'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1770540485305'
+        sourceType: code
+        targetType: tool
+      id: 1770540558676-source-17705419311710-target
+      source: '1770540558676'
+      sourceHandle: source
+      target: '17705419311710'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1770540485305'
+        sourceType: tool
+        targetType: code
+      id: 17705419311710-source-1770542499090-target
+      source: '17705419311710'
+      sourceHandle: source
+      target: '1770542499090'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1770540485305'
+        sourceType: code
+        targetType: assigner
+      id: 1770542499090-source-1770540716073-target
+      selected: false
+      source: '1770542499090'
+      sourceHandle: source
+      target: '1770540716073'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1770539645070-source-17705445030570-target
+      source: '1770539645070'
+      sourceHandle: source
+      target: '17705445030570'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: loop
+        targetType: code
+      id: 1770540485305-source-1770546693704-target
+      source: '1770540485305'
+      sourceHandle: source
+      target: '1770546693704'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1770546693704-source-1770547392636-target
+      source: '1770546693704'
+      sourceHandle: source
+      target: '1770547392636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 17705445030570-source-1770547392636-target
+      source: '17705445030570'
+      sourceHandle: source
+      target: '1770547392636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1770547392636-source-1770547716720-target
+      source: '1770547392636'
+      sourceHandle: source
+      target: '1770547716720'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1770547716720-source-answer-target
+      source: '1770547716720'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: 'no'
+          hint: ''
+          label: 添加数据到milvus
+          max_length: 48
+          options:
+          - 'yes'
+          - 'no'
+          placeholder: ''
+          required: false
+          type: select
+          variable: add_to_milvus
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: add_data
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: file
+          variable: add_data
+      height: 101
+      id: '1770530828625'
+      position:
+        x: -122.16309037220577
+        y: 1036.132898785191
+      positionAbsolute:
+        x: -122.16309037220577
+        y: 1036.132898785191
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1770547716720.result#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 85
+      id: answer
+      position:
+        x: 2365.761716040606
+        y: 1330.1923650495191
+      positionAbsolute:
+        x: 2365.761716040606
+        y: 1330.1923650495191
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 9d134eff-2df7-418e-81e8-f632c6706850
+            value: 'yes'
+            varType: string
+            variable_selector:
+            - '1770530828625'
+            - add_to_milvus
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 93
+      id: '1770531254551'
+      position:
+        x: -122.16309037220577
+        y: 816.4119277022578
+      positionAbsolute:
+        x: -122.16309037220577
+        y: 816.4119277022578
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import re\nimport json\n\nMAX_LEN = 400\nOVERLAP = 50\ndef main(text:\
+          \ str):\n    max_len = MAX_LEN\n    results = []\n\n    # 按一级标题切分（保留标题）\n\
+          \    sections = re.split(r'(?m)^# ', text)\n    \n    for section in sections:\n\
+          \        section = section.strip()\n        if not section:\n          \
+          \  continue\n\n        # 还原标题\n        section = \"# \" + section\n\n  \
+          \      # 拆标题和正文\n        lines = section.splitlines()\n        title = lines[0].replace(\"\
+          #\", \"\").strip()\n        content = \"\\n\".join(lines[1:]).strip()\n\n\
+          \        if not content:\n            continue\n\n        # 如果正文不超过 max_len，直接放\n\
+          \        if len(content) <= max_len:\n            results.append({\n   \
+          \             \"title\": title,\n                \"text\": content\n   \
+          \         })\n        else:\n            # 超过 max_len，顺序切分\n           \
+          \ start = 0\n            while start < len(content):\n                chunk\
+          \ = content[start:start + max_len]\n                results.append({\n \
+          \                   \"title\": title,\n                    \"text\": chunk.strip()\n\
+          \                })\n                start += max_len - OVERLAP\n\n    return\
+          \ {\n    \"chunks\": results\n    }\n"
+        code_language: python3
+        outputs:
+          chunks:
+            children: null
+            type: array[object]
+        selected: false
+        title: 拆分为内容+标题
+        type: code
+        variables:
+        - value_selector:
+          - '1770531636860'
+          - text
+          value_type: array[string]
+          variable: text
+      height: 39
+      id: '1770531616893'
+      position:
+        x: 451.177976815997
+        y: 302.8651442197038
+      positionAbsolute:
+        x: 451.177976815997
+        y: 302.8651442197038
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1770530828625'
+        - add_data
+      height: 81
+      id: '1770531636860'
+      position:
+        x: 171.75724379235297
+        y: 329.7996979748697
+      positionAbsolute:
+        x: 171.75724379235297
+        y: 329.7996979748697
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Selector Embedding Model
+            ja_JP: Selector Embedding Model
+            pt_BR: Selector Embedding Model
+            zh_Hans: 选择嵌入模型
+          label:
+            en_US: Selector Embedding Model
+            ja_JP: Selector Embedding Model
+            pt_BR: Selector Embedding Model
+            zh_Hans: 选择嵌入模型
+          llm_description: ''
+          max: null
+          min: null
+          name: embedding_model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: text-embedding
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: INPUT TEXT
+            ja_JP: INPUT TEXT
+            pt_BR: INPUT TEXT
+            zh_Hans: '支持两种输入格式：  1. 普通字符串，例如: 大家好我是小小    2. JSON 字符串数组，例如: ["大家好我是小小","今天很开心"]'
+          label:
+            en_US: INPUT TEXT
+            ja_JP: INPUT TEXT
+            pt_BR: INPUT TEXT
+            zh_Hans: 输入文本
+          llm_description: ''
+          max: null
+          min: null
+          name: input_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'default: 10 (Optional)'
+            ja_JP: 'default: 10 (Optional)'
+            pt_BR: 'default: 10 (Optional)'
+            zh_Hans: 默认：10 (可选)
+          label:
+            en_US: BATCH SIZE (Optional)
+            ja_JP: BATCH SIZE (Optional)
+            pt_BR: BATCH SIZE (Optional)
+            zh_Hans: BATCH SIZE (可选)
+          llm_description: ''
+          max: null
+          min: null
+          name: batch_size
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          batch_size: ''
+          embedding_model_config: ''
+          input_text: ''
+        plugin_id: siyu/text_embedding_vector_client
+        plugin_unique_identifier: siyu/text_embedding_vector_client:0.0.3@e90a5be1b6a020ad9d56fcdac59d685f861f8d3bb00a6cd8d5bc7a82bd8ab2da
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=0b07fb7c-055d-433b-992c-17d41c4db498&filename=be67c39da11a50556120bcea69db3c213b74bca33b11f79f486ed577f99063aa.svg
+        provider_id: siyu/text_embedding_vector_client/provider_embedding_client
+        provider_name: siyu/text_embedding_vector_client/provider_embedding_client
+        provider_type: builtin
+        selected: false
+        title: TEXT_2_VECTOR
+        tool_configurations:
+          embedding_model_config:
+            type: constant
+            value:
+              model: nomic-embed-text
+              model_type: text-embedding
+              provider: langgenius/ollama/ollama
+        tool_description: TEXT_2_VECTOR
+        tool_label: TEXT_2_VECTOR
+        tool_name: text_2_vector
+        tool_node_version: '2'
+        tool_parameters:
+          batch_size:
+            type: constant
+            value: 32
+          input_text:
+            type: mixed
+            value: '{{#1770532821746.texts#}}'
+        type: tool
+      height: 66
+      id: '1770532750388'
+      position:
+        x: 1061.1687489225953
+        y: 130.80947614472151
+      positionAbsolute:
+        x: 1061.1687489225953
+        y: 130.80947614472151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(chunks: list):\n    texts = []\n\n    for item in chunks:\n\
+          \        text = item.get(\"text\", \"\").strip()\n        if text:\n   \
+          \         texts.append(text)\n\n    return {\n        \"texts\": texts\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          texts:
+            children: null
+            type: array[string]
+        selected: false
+        title: 提取文本输入embedding
+        type: code
+        variables:
+        - value_selector:
+          - '1770531616893'
+          - chunks
+          value_type: array[object]
+          variable: chunks
+      height: 39
+      id: '1770532821746'
+      position:
+        x: 732.7540445929883
+        y: 145.22408807547183
+      positionAbsolute:
+        x: 732.7540445929883
+        y: 145.22408807547183
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of the collection to insert data into
+            ja_JP: The name of the collection to insert data into
+            pt_BR: O nome da coleção para inserir dados
+            zh_Hans: 要插入数据的集合名称
+          label:
+            en_US: Collection Name
+            ja_JP: Collection Name
+            pt_BR: Nome da Coleção
+            zh_Hans: 集合名称
+          llm_description: The name of the collection to insert data into
+          max: null
+          min: null
+          name: collection_name
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'JSON array of entities to insert (e.g., [{"id": 1, "vector": [0.1,
+              0.2], "metadata": "value"}]). Vectors must be precomputed by caller.'
+            ja_JP: 'JSON array of entities to insert (e.g., [{"id": 1, "vector": [0.1,
+              0.2], "metadata": "value"}]). Vectors must be precomputed by caller.'
+            pt_BR: 'Array JSON de entidades para inserir (ex.: [{"id": 1, "vector":
+              [0.1, 0.2], "metadata": "value"}]). Vetores devem ser pré-computados
+              pelo chamador.'
+            zh_Hans: '要插入的实体 JSON 数组（例如：[{"id": 1, "vector": [0.1, 0.2], "metadata":
+              "value"}]）。向量需由调用方预先计算。'
+          label:
+            en_US: Data
+            ja_JP: Data
+            pt_BR: Dados
+            zh_Hans: 数据
+          llm_description: JSON array of entities to insert, each entity should be
+            a dictionary with vector and metadata fields
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional partition name to insert data into
+            ja_JP: Optional partition name to insert data into
+            pt_BR: Nome da partição opcional para inserir dados
+            zh_Hans: 可选的分区名称，用于插入数据
+          label:
+            en_US: Partition Name
+            ja_JP: Partition Name
+            pt_BR: Nome da Partição
+            zh_Hans: 分区名称
+          llm_description: Optional partition name to insert data into (if not specified,
+            data goes to default partition)
+          max: null
+          min: null
+          name: partition_name
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          collection_name: ''
+          data: ''
+          partition_name: ''
+        plugin_id: zeroz-lab/milvus
+        plugin_unique_identifier: zeroz-lab/milvus:0.1.4@ae1e31b6454d7f8ad8e7a612aab0d7b95f3aa8be59cb1465c38ed80a5cb4bf7d
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=0b07fb7c-055d-433b-992c-17d41c4db498&filename=4745a24ffa8ec2b666e31e822b2135d4af0e5283e9dca6e04ad3b6666d9bdb31.svg
+        provider_id: zeroz-lab/milvus/milvus
+        provider_name: zeroz-lab/milvus/milvus
+        provider_type: builtin
+        selected: false
+        title: Milvus 数据插入
+        tool_configurations: {}
+        tool_description: 向 Milvus 集合中插入向量数据和元数据
+        tool_label: Milvus 数据插入
+        tool_name: milvus_insert
+        tool_node_version: '2'
+        tool_parameters:
+          collection_name:
+            type: mixed
+            value: hierarchical
+          data:
+            type: mixed
+            value: '{{#1770533035797.data#}}'
+          partition_name:
+            type: mixed
+            value: null
+        type: tool
+      height: 39
+      id: '1770532959953'
+      position:
+        x: 1620.5829890009454
+        y: 302.8651442197038
+      positionAbsolute:
+        x: 1620.5829890009454
+        y: 302.8651442197038
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(chunks: list, embedding_json: list):\n    results = []\n\n\
+          \    if not embedding_json:\n        return {\"data\": [], \"count\": 0}\n\
+          \n    vectors = embedding_json[0].get(\"vector\", [])\n\n    length = min(len(chunks),\
+          \ len(vectors))\n\n    for i in range(length):\n        chunk = chunks[i]\n\
+          \        results.append({\n            \"id\": i + 1,\n            \"vector_768\"\
+          : vectors[i],\n            \"vector_256\": vectors[i][:256],\n         \
+          \   \"title\": chunk.get(\"title\"),\n            \"category\":\"none\"\
+          ,\n            \"text\": chunk.get(\"text\")\n        })\n\n    return {\n\
+          \        \"data\": results,\n    }\n"
+        code_language: python3
+        outputs:
+          data:
+            children: null
+            type: array[object]
+        selected: false
+        title: 拼接输入milvus数据
+        type: code
+        variables:
+        - value_selector:
+          - '1770531616893'
+          - chunks
+          value_type: array[object]
+          variable: chunks
+        - value_selector:
+          - '1770532750388'
+          - json
+          value_type: array[object]
+          variable: embedding_json
+      height: 39
+      id: '1770533035797'
+      position:
+        x: 1305.061085355344
+        y: 302.8651442197038
+      positionAbsolute:
+        x: 1305.061085355344
+        y: 302.8651442197038
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import requests\n\ndef main():\n    try:\n        response = requests.get(\"\
+          http://host.docker.internal:5000/titles\")  # Dify 能访问本地服务需网络可达\n      \
+          \  data = response.json()\n        return {\n            \"titles\": data.get(\"\
+          titles\", []),\n        }\n    except Exception as e:\n        return {\n\
+          \            \"titles\": [],\n        }\n"
+        code_language: python3
+        outputs:
+          titles:
+            children: null
+            type: array[string]
+        selected: false
+        title: 获得所有title，与本地api配合
+        type: code
+        variables: []
+      height: 39
+      id: '1770536565447'
+      position:
+        x: 231.5058635443428
+        y: 649.8895840749402
+      positionAbsolute:
+        x: 231.5058635443428
+        y: 649.8895840749402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: qwen-plus-latest
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 07e9f541-1737-4a87-a330-802ce514e38b
+          role: system
+          text: '你是一个数据库管理员，根据用户的输入内容，判断应该去哪些标题下的数据库查找资料。你需要选出前三个重要的标题，并按照“重要到不重要”排序输出。只选择三个，严禁超出数量。
+
+            # 用户输入：
+
+            {{#sys.query#}}
+
+
+            # 全部数据库标题：
+
+            {{#1770536565447.titles#}}'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              title:
+                description: 选出的标题，输出为一个list
+                type: string
+            required:
+            - title
+            type: object
+        structured_output_enabled: true
+        title: 筛选title范围
+        type: llm
+        vision:
+          enabled: false
+      height: 66
+      id: '1770537160426'
+      position:
+        x: 545.1963636070345
+        y: 649.8895840749402
+      positionAbsolute:
+        x: 545.1963636070345
+        y: 649.8895840749402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Selector Embedding Model
+            ja_JP: Selector Embedding Model
+            pt_BR: Selector Embedding Model
+            zh_Hans: 选择嵌入模型
+          label:
+            en_US: Selector Embedding Model
+            ja_JP: Selector Embedding Model
+            pt_BR: Selector Embedding Model
+            zh_Hans: 选择嵌入模型
+          llm_description: ''
+          max: null
+          min: null
+          name: embedding_model_config
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: text-embedding
+          template: null
+          type: model-selector
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: INPUT TEXT
+            ja_JP: INPUT TEXT
+            pt_BR: INPUT TEXT
+            zh_Hans: '支持两种输入格式：  1. 普通字符串，例如: 大家好我是小小    2. JSON 字符串数组，例如: ["大家好我是小小","今天很开心"]'
+          label:
+            en_US: INPUT TEXT
+            ja_JP: INPUT TEXT
+            pt_BR: INPUT TEXT
+            zh_Hans: 输入文本
+          llm_description: ''
+          max: null
+          min: null
+          name: input_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'default: 10 (Optional)'
+            ja_JP: 'default: 10 (Optional)'
+            pt_BR: 'default: 10 (Optional)'
+            zh_Hans: 默认：10 (可选)
+          label:
+            en_US: BATCH SIZE (Optional)
+            ja_JP: BATCH SIZE (Optional)
+            pt_BR: BATCH SIZE (Optional)
+            zh_Hans: BATCH SIZE (可选)
+          llm_description: ''
+          max: null
+          min: null
+          name: batch_size
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          batch_size: ''
+          embedding_model_config: ''
+          input_text: ''
+        plugin_id: siyu/text_embedding_vector_client
+        plugin_unique_identifier: siyu/text_embedding_vector_client:0.0.3@e90a5be1b6a020ad9d56fcdac59d685f861f8d3bb00a6cd8d5bc7a82bd8ab2da
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=0b07fb7c-055d-433b-992c-17d41c4db498&filename=be67c39da11a50556120bcea69db3c213b74bca33b11f79f486ed577f99063aa.svg
+        provider_id: siyu/text_embedding_vector_client/provider_embedding_client
+        provider_name: siyu/text_embedding_vector_client/provider_embedding_client
+        provider_type: builtin
+        selected: false
+        title: TEXT_2_VECTOR
+        tool_configurations:
+          embedding_model_config:
+            type: constant
+            value:
+              model: nomic-embed-text
+              model_type: text-embedding
+              provider: langgenius/ollama/ollama
+        tool_description: TEXT_2_VECTOR
+        tool_label: TEXT_2_VECTOR
+        tool_name: text_2_vector
+        tool_node_version: '2'
+        tool_parameters:
+          batch_size:
+            type: constant
+            value: null
+          input_text:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 66
+      id: '1770539645070'
+      position:
+        x: 393.2933718136753
+        y: 883.3789256960982
+      positionAbsolute:
+        x: 393.2933718136753
+        y: 883.3789256960982
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "\ndef main(embedding_array):\n    all_vectors = []\n    for embedding_item\
+          \ in embedding_array:\n        vecs = embedding_item.get(\"vector\", [])\n\
+          \        if not vecs:\n            continue\n        # vecs 本身是二维 list，每一行是一条向量\n\
+          \        all_vectors.extend(vecs)\n    return {\n        \"result\": str(all_vectors[0][:256]),\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: embedding输出结果256维
+        type: code
+        variables:
+        - value_selector:
+          - '1770539645070'
+          - json
+          value_type: array[object]
+          variable: embedding_array
+      height: 39
+      id: '1770539758396'
+      position:
+        x: 853.8498392522918
+        y: 883.3789256960982
+      positionAbsolute:
+        x: 853.8498392522918
+        y: 883.3789256960982
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "\ndef main(arg1):\n    titles = arg1[\"title\"]\n    return {\n   \
+          \     \"titles\": titles,\n    }\n"
+        code_language: python3
+        outputs:
+          titles:
+            children: null
+            type: array[string]
+        selected: false
+        title: 提取出所有候选title
+        type: code
+        variables:
+        - value_selector:
+          - '1770537160426'
+          - structured_output
+          value_type: object
+          variable: arg1
+      height: 39
+      id: '1770540034386'
+      position:
+        x: 853.8498392522918
+        y: 689.207055439636
+      positionAbsolute:
+        x: 853.8498392522918
+        y: 689.207055439636
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        break_conditions: []
+        error_handle_mode: terminated
+        height: 594
+        logical_operator: and
+        loop_count: 3
+        loop_variables:
+        - id: 4a935f4e-cc3d-41a5-96dc-a7ea3b4eac59
+          label: result
+          value: '[]'
+          value_type: constant
+          var_type: array[object]
+        - id: bebb7b69-83da-4f3d-bdbb-a41377909d0b
+          label: times
+          value: '0'
+          value_type: constant
+          var_type: number
+        selected: false
+        start_node_id: 1770540485305start
+        title: 循环256维
+        type: loop
+        width: 446
+      height: 594
+      id: '1770540485305'
+      position:
+        x: 1367.7395720801385
+        y: 649.8895840749402
+      positionAbsolute:
+        x: 1367.7395720801385
+        y: 649.8895840749402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 446
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 36
+      id: 1770540485305start
+      parentId: '1770540485305'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1391.7395720801385
+        y: 717.8895840749402
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 33
+      zIndex: 1002
+    - data:
+        code: "\ndef main(arg1: str, times):\n    return {\n        \"result\": arg1[int(times)],\n\
+          \    }\n"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1770540485305'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 获取第time轮标题256
+        type: code
+        variables:
+        - value_selector:
+          - '1770540034386'
+          - titles
+          value_type: array[string]
+          variable: arg1
+        - value_selector:
+          - '1770540485305'
+          - times
+          value_type: number
+          variable: times
+      height: 39
+      id: '1770540558676'
+      parentId: '1770540485305'
+      position:
+        x: 103.42053777512342
+        y: 86.41258292390478
+      positionAbsolute:
+        x: 1471.160109855262
+        y: 736.302166998845
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        items:
+        - input_type: constant
+          operation: +=
+          value: 1
+          variable_selector:
+          - '1770540485305'
+          - times
+          write_mode: over-write
+        - input_type: variable
+          operation: extend
+          value:
+          - '1770542499090'
+          - result
+          variable_selector:
+          - '1770540485305'
+          - result
+          write_mode: over-write
+        loop_id: '1770540485305'
+        selected: false
+        title: 变量赋值256
+        type: assigner
+        version: '2'
+      height: 82
+      id: '1770540716073'
+      parentId: '1770540485305'
+      position:
+        x: 98.6464468468123
+        y: 455.9782014532385
+      positionAbsolute:
+        x: 1466.3860189269508
+        y: 1105.8677855281787
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: true
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of the collection to search in
+            ja_JP: The name of the collection to search in
+            pt_BR: O nome da coleção para pesquisar
+            zh_Hans: 要搜索的集合名称
+          label:
+            en_US: Collection Name
+            ja_JP: Collection Name
+            pt_BR: Nome da Coleção
+            zh_Hans: 集合名称
+          llm_description: The name of the collection to perform vector search in
+          max: null
+          min: null
+          name: collection_name
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The query vector as JSON array (e.g., [0.1, 0.2, 0.3]). Must be
+              precomputed by the caller.
+            ja_JP: The query vector as JSON array (e.g., [0.1, 0.2, 0.3]). Must be
+              precomputed by the caller.
+            pt_BR: 'O vetor de consulta como array JSON (ex.: [0.1, 0.2, 0.3]). Deve
+              ser pré-computado pelo chamador.'
+            zh_Hans: 查询向量，JSON 数组格式（例如：[0.1, 0.2, 0.3]）。必须由调用方预先计算。
+          label:
+            en_US: Query Vector
+            ja_JP: Query Vector
+            pt_BR: Vetor de Consulta
+            zh_Hans: 查询向量
+          llm_description: The query vector as a JSON array of numbers for similarity
+            search. Precompute it on the caller side.
+          max: null
+          min: null
+          name: query_vector
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 10
+          form: llm
+          human_description:
+            en_US: Maximum number of results to return (1-1000)
+            ja_JP: Maximum number of results to return (1-1000)
+            pt_BR: Número máximo de resultados a retornar (1-1000)
+            zh_Hans: 返回的最大结果数量（1-1000）
+          label:
+            en_US: Result Limit
+            ja_JP: Result Limit
+            pt_BR: Limite de Resultados
+            zh_Hans: 结果限制
+          llm_description: 'Maximum number of search results to return (1-1000, default:
+            10)'
+          max: null
+          min: null
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Comma-separated list of fields to return (e.g., 'field1,field2')
+            ja_JP: Comma-separated list of fields to return (e.g., 'field1,field2')
+            pt_BR: 'Lista de campos separados por vírgula para retornar (ex: ''field1,field2'')'
+            zh_Hans: 要返回的字段列表，用逗号分隔（例如：'field1,field2'）
+          label:
+            en_US: Output Fields
+            ja_JP: Output Fields
+            pt_BR: Campos de Saída
+            zh_Hans: 输出字段
+          llm_description: Comma-separated list of fields to include in search results
+          max: null
+          min: null
+          name: output_fields
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filter expression for scalar fields (e.g., 'age > 18 and status
+              == "active"')
+            ja_JP: Filter expression for scalar fields (e.g., 'age > 18 and status
+              == "active"')
+            pt_BR: 'Expressão de filtro para campos escalares (ex: ''age > 18 and
+              status == "active"'')'
+            zh_Hans: 标量字段的过滤表达式（例如：'age > 18 and status == "active"'）
+          label:
+            en_US: Filter Expression
+            ja_JP: Filter Expression
+            pt_BR: Expressão de Filtro
+            zh_Hans: 过滤表达式
+          llm_description: Boolean expression for filtering results based on scalar
+            fields
+          max: null
+          min: null
+          name: filter
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: vector
+          form: llm
+          human_description:
+            en_US: The name of the vector field to search against. Defaults to 'vector'
+              if not provided.
+            ja_JP: The name of the vector field to search against. Defaults to 'vector'
+              if not provided.
+            pt_BR: O nome do campo vetorial para pesquisar. O padrão é 'vector' se
+              não for fornecido.
+            zh_Hans: 要进行搜索的向量字段的名称。如果未提供，则默认为 'vector'。
+          label:
+            en_US: Vector Field Name
+            ja_JP: Vector Field Name
+            pt_BR: Nome do Campo Vetorial
+            zh_Hans: 向量字段名称
+          llm_description: The name of the vector field for similarity search. Defaults
+            to 'vector' if not specified.
+          max: null
+          min: null
+          name: anns_field
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Distance metric type for similarity calculation
+            ja_JP: Distance metric type for similarity calculation
+            pt_BR: Tipo de métrica de distância para cálculo de similaridade
+            zh_Hans: 用于相似度计算的距离度量类型
+          label:
+            en_US: Metric Type
+            ja_JP: Metric Type
+            pt_BR: Tipo de Métrica
+            zh_Hans: 距离度量类型
+          llm_description: 'Distance metric type: COSINE, L2, or IP'
+          max: null
+          min: null
+          name: metric_type
+          options:
+          - icon: ''
+            label:
+              en_US: Cosine Similarity
+              ja_JP: Cosine Similarity
+              pt_BR: Similaridade Cosseno
+              zh_Hans: 余弦相似度
+            value: COSINE
+          - icon: ''
+            label:
+              en_US: Euclidean Distance
+              ja_JP: Euclidean Distance
+              pt_BR: Distância Euclidiana
+              zh_Hans: 欧几里得距离
+            value: L2
+          - icon: ''
+            label:
+              en_US: Inner Product
+              ja_JP: Inner Product
+              pt_BR: Produto Interno
+              zh_Hans: 内积
+            value: IP
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Search precision level (1-5, higher means more accurate but slower)
+            ja_JP: Search precision level (1-5, higher means more accurate but slower)
+            pt_BR: Nível de precisão da busca (1-5, maior significa mais preciso mas
+              mais lento)
+            zh_Hans: 搜索精度级别（1-5，越高越准确但越慢）
+          label:
+            en_US: Search Level
+            ja_JP: Search Level
+            pt_BR: Nível de Busca
+            zh_Hans: 搜索级别
+          llm_description: Search precision level from 1 to 5 (higher values provide
+            better recall but slower performance)
+          max: null
+          min: null
+          name: level
+          options:
+          - icon: ''
+            label:
+              en_US: Level 1 (Fastest)
+              ja_JP: Level 1 (Fastest)
+              pt_BR: Nível 1 (Mais Rápido)
+              zh_Hans: 级别1（最快）
+            value: '1'
+          - icon: ''
+            label:
+              en_US: Level 2
+              ja_JP: Level 2
+              pt_BR: Nível 2
+              zh_Hans: 级别2
+            value: '2'
+          - icon: ''
+            label:
+              en_US: Level 3
+              ja_JP: Level 3
+              pt_BR: Nível 3
+              zh_Hans: 级别3
+            value: '3'
+          - icon: ''
+            label:
+              en_US: Level 4
+              ja_JP: Level 4
+              pt_BR: Nível 4
+              zh_Hans: 级别4
+            value: '4'
+          - icon: ''
+            label:
+              en_US: Level 5 (Most Accurate)
+              ja_JP: Level 5 (Most Accurate)
+              pt_BR: Nível 5 (Mais Preciso)
+              zh_Hans: 级别5（最准确）
+            value: '5'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Minimum similarity threshold for range search
+            ja_JP: Minimum similarity threshold for range search
+            pt_BR: Limite mínimo de similaridade para busca por intervalo
+            zh_Hans: 范围搜索的最小相似度阈值
+          label:
+            en_US: Search Radius
+            ja_JP: Search Radius
+            pt_BR: Raio de Busca
+            zh_Hans: 搜索半径
+          llm_description: Minimum similarity threshold for range search (used with
+            range_filter)
+          max: null
+          min: null
+          name: radius
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum similarity threshold for range search
+            ja_JP: Maximum similarity threshold for range search
+            pt_BR: Limite máximo de similaridade para busca por intervalo
+            zh_Hans: 范围搜索的最大相似度阈值
+          label:
+            en_US: Range Filter
+            ja_JP: Range Filter
+            pt_BR: Filtro de Intervalo
+            zh_Hans: 范围过滤器
+          llm_description: Maximum similarity threshold for range search (used with
+            radius)
+          max: null
+          min: null
+          name: range_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'Additional search parameters as JSON (e.g., ''{"nprobe": 16}'')'
+            ja_JP: 'Additional search parameters as JSON (e.g., ''{"nprobe": 16}'')'
+            pt_BR: 'Parâmetros de busca adicionais como JSON (ex: ''{"nprobe": 16}'')'
+            zh_Hans: '额外的搜索参数，JSON格式（例如：''{"nprobe": 16}''）'
+          label:
+            en_US: Advanced Search Parameters
+            ja_JP: Advanced Search Parameters
+            pt_BR: Parâmetros Avançados de Busca
+            zh_Hans: 高级搜索参数
+          llm_description: Additional search parameters as JSON object for fine-tuning
+            search behavior
+          max: null
+          min: null
+          name: search_params
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          anns_field: ''
+          collection_name: ''
+          filter: ''
+          level: ''
+          limit: ''
+          metric_type: ''
+          output_fields: ''
+          query_vector: ''
+          radius: ''
+          range_filter: ''
+          search_params: ''
+        plugin_id: zeroz-lab/milvus
+        plugin_unique_identifier: zeroz-lab/milvus:0.1.4@ae1e31b6454d7f8ad8e7a612aab0d7b95f3aa8be59cb1465c38ed80a5cb4bf7d
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=0b07fb7c-055d-433b-992c-17d41c4db498&filename=4745a24ffa8ec2b666e31e822b2135d4af0e5283e9dca6e04ad3b6666d9bdb31.svg
+        provider_id: zeroz-lab/milvus/milvus
+        provider_name: zeroz-lab/milvus/milvus
+        provider_type: builtin
+        selected: false
+        title: Milvus 向量搜索256
+        tool_configurations:
+          level:
+            type: constant
+            value: 1
+          metric_type:
+            type: constant
+            value: null
+        tool_description: 在 Milvus 集合中执行向量相似度搜索
+        tool_label: Milvus 向量搜索
+        tool_name: milvus_search
+        tool_node_version: '2'
+        tool_parameters:
+          anns_field:
+            type: mixed
+            value: vector_256
+          collection_name:
+            type: mixed
+            value: hierarchical
+          filter:
+            type: mixed
+            value: title == "{{#1770540558676.result#}}"
+          limit:
+            type: constant
+            value: 10
+          output_fields:
+            type: mixed
+            value: id,text
+          query_vector:
+            type: mixed
+            value: '{{#1770539758396.result#}}'
+          radius:
+            type: constant
+            value: null
+          range_filter:
+            type: constant
+            value: null
+          search_params:
+            type: mixed
+            value: null
+        type: tool
+      height: 85
+      id: '17705419311710'
+      parentId: '1770540485305'
+      position:
+        x: 99.98271433853415
+        y: 202.03760814651173
+      positionAbsolute:
+        x: 1467.7222864186726
+        y: 851.927192221452
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(arg1):\n    result = []\n    all_result = arg1[0][\"results\"\
+          ]\n    for info in (all_result):\n        result.append({\n            \"\
+          id\": info[\"id\"],\n            \"distance\": info[\"distance\"],\n   \
+          \         \"text\":info[\"text\"]\n        })\n    return {\n        \"\
+          result\": result\n    }\n"
+        code_language: python3
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1770540485305'
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 提取出搜索结果256维
+        type: code
+        variables:
+        - value_selector:
+          - '17705419311710'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 39
+      id: '1770542499090'
+      parentId: '1770540485305'
+      position:
+        x: 101.62594590086769
+        y: 349.5798020573561
+      positionAbsolute:
+        x: 1469.3655179810062
+        y: 999.4693861322963
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "\ndef main(embedding_array):\n    all_vectors = []\n    for embedding_item\
+          \ in embedding_array:\n        vecs = embedding_item.get(\"vector\", [])\n\
+          \        if not vecs:\n            continue\n        # vecs 本身是二维 list，每一行是一条向量\n\
+          \        all_vectors.extend(vecs)\n    return {\n        \"result\": str(all_vectors[0]),\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: embedding输出结果 768维
+        type: code
+        variables:
+        - value_selector:
+          - '1770539645070'
+          - json
+          value_type: array[object]
+          variable: embedding_array
+      height: 39
+      id: '17705445030570'
+      position:
+        x: 805.8498473751094
+        y: 1417.7854246598713
+      positionAbsolute:
+        x: 805.8498473751094
+        y: 1417.7854246598713
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(arg1):\n    ids = []\n    for result in arg1:\n        ids.append(f\"\
+          id == {result['id']}\")\n\n    id_filter = \" or \".join(ids)\n    return\
+          \ {\n        \"ids\": str(id_filter)\n    }\n"
+        code_language: python3
+        outputs:
+          ids:
+            children: null
+            type: string
+        selected: false
+        title: 提取256维检索结果的id
+        type: code
+        variables:
+        - value_selector:
+          - '1770540485305'
+          - result
+          value_type: array[object]
+          variable: arg1
+      height: 39
+      id: '1770546693704'
+      position:
+        x: 1937.1660981317593
+        y: 649.8895840749402
+      positionAbsolute:
+        x: 1937.1660981317593
+        y: 649.8895840749402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of the collection to search in
+            ja_JP: The name of the collection to search in
+            pt_BR: O nome da coleção para pesquisar
+            zh_Hans: 要搜索的集合名称
+          label:
+            en_US: Collection Name
+            ja_JP: Collection Name
+            pt_BR: Nome da Coleção
+            zh_Hans: 集合名称
+          llm_description: The name of the collection to perform vector search in
+          max: null
+          min: null
+          name: collection_name
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The query vector as JSON array (e.g., [0.1, 0.2, 0.3]). Must be
+              precomputed by the caller.
+            ja_JP: The query vector as JSON array (e.g., [0.1, 0.2, 0.3]). Must be
+              precomputed by the caller.
+            pt_BR: 'O vetor de consulta como array JSON (ex.: [0.1, 0.2, 0.3]). Deve
+              ser pré-computado pelo chamador.'
+            zh_Hans: 查询向量，JSON 数组格式（例如：[0.1, 0.2, 0.3]）。必须由调用方预先计算。
+          label:
+            en_US: Query Vector
+            ja_JP: Query Vector
+            pt_BR: Vetor de Consulta
+            zh_Hans: 查询向量
+          llm_description: The query vector as a JSON array of numbers for similarity
+            search. Precompute it on the caller side.
+          max: null
+          min: null
+          name: query_vector
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 10
+          form: llm
+          human_description:
+            en_US: Maximum number of results to return (1-1000)
+            ja_JP: Maximum number of results to return (1-1000)
+            pt_BR: Número máximo de resultados a retornar (1-1000)
+            zh_Hans: 返回的最大结果数量（1-1000）
+          label:
+            en_US: Result Limit
+            ja_JP: Result Limit
+            pt_BR: Limite de Resultados
+            zh_Hans: 结果限制
+          llm_description: 'Maximum number of search results to return (1-1000, default:
+            10)'
+          max: null
+          min: null
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Comma-separated list of fields to return (e.g., 'field1,field2')
+            ja_JP: Comma-separated list of fields to return (e.g., 'field1,field2')
+            pt_BR: 'Lista de campos separados por vírgula para retornar (ex: ''field1,field2'')'
+            zh_Hans: 要返回的字段列表，用逗号分隔（例如：'field1,field2'）
+          label:
+            en_US: Output Fields
+            ja_JP: Output Fields
+            pt_BR: Campos de Saída
+            zh_Hans: 输出字段
+          llm_description: Comma-separated list of fields to include in search results
+          max: null
+          min: null
+          name: output_fields
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filter expression for scalar fields (e.g., 'age > 18 and status
+              == "active"')
+            ja_JP: Filter expression for scalar fields (e.g., 'age > 18 and status
+              == "active"')
+            pt_BR: 'Expressão de filtro para campos escalares (ex: ''age > 18 and
+              status == "active"'')'
+            zh_Hans: 标量字段的过滤表达式（例如：'age > 18 and status == "active"'）
+          label:
+            en_US: Filter Expression
+            ja_JP: Filter Expression
+            pt_BR: Expressão de Filtro
+            zh_Hans: 过滤表达式
+          llm_description: Boolean expression for filtering results based on scalar
+            fields
+          max: null
+          min: null
+          name: filter
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: vector
+          form: llm
+          human_description:
+            en_US: The name of the vector field to search against. Defaults to 'vector'
+              if not provided.
+            ja_JP: The name of the vector field to search against. Defaults to 'vector'
+              if not provided.
+            pt_BR: O nome do campo vetorial para pesquisar. O padrão é 'vector' se
+              não for fornecido.
+            zh_Hans: 要进行搜索的向量字段的名称。如果未提供，则默认为 'vector'。
+          label:
+            en_US: Vector Field Name
+            ja_JP: Vector Field Name
+            pt_BR: Nome do Campo Vetorial
+            zh_Hans: 向量字段名称
+          llm_description: The name of the vector field for similarity search. Defaults
+            to 'vector' if not specified.
+          max: null
+          min: null
+          name: anns_field
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Distance metric type for similarity calculation
+            ja_JP: Distance metric type for similarity calculation
+            pt_BR: Tipo de métrica de distância para cálculo de similaridade
+            zh_Hans: 用于相似度计算的距离度量类型
+          label:
+            en_US: Metric Type
+            ja_JP: Metric Type
+            pt_BR: Tipo de Métrica
+            zh_Hans: 距离度量类型
+          llm_description: 'Distance metric type: COSINE, L2, or IP'
+          max: null
+          min: null
+          name: metric_type
+          options:
+          - icon: ''
+            label:
+              en_US: Cosine Similarity
+              ja_JP: Cosine Similarity
+              pt_BR: Similaridade Cosseno
+              zh_Hans: 余弦相似度
+            value: COSINE
+          - icon: ''
+            label:
+              en_US: Euclidean Distance
+              ja_JP: Euclidean Distance
+              pt_BR: Distância Euclidiana
+              zh_Hans: 欧几里得距离
+            value: L2
+          - icon: ''
+            label:
+              en_US: Inner Product
+              ja_JP: Inner Product
+              pt_BR: Produto Interno
+              zh_Hans: 内积
+            value: IP
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Search precision level (1-5, higher means more accurate but slower)
+            ja_JP: Search precision level (1-5, higher means more accurate but slower)
+            pt_BR: Nível de precisão da busca (1-5, maior significa mais preciso mas
+              mais lento)
+            zh_Hans: 搜索精度级别（1-5，越高越准确但越慢）
+          label:
+            en_US: Search Level
+            ja_JP: Search Level
+            pt_BR: Nível de Busca
+            zh_Hans: 搜索级别
+          llm_description: Search precision level from 1 to 5 (higher values provide
+            better recall but slower performance)
+          max: null
+          min: null
+          name: level
+          options:
+          - icon: ''
+            label:
+              en_US: Level 1 (Fastest)
+              ja_JP: Level 1 (Fastest)
+              pt_BR: Nível 1 (Mais Rápido)
+              zh_Hans: 级别1（最快）
+            value: '1'
+          - icon: ''
+            label:
+              en_US: Level 2
+              ja_JP: Level 2
+              pt_BR: Nível 2
+              zh_Hans: 级别2
+            value: '2'
+          - icon: ''
+            label:
+              en_US: Level 3
+              ja_JP: Level 3
+              pt_BR: Nível 3
+              zh_Hans: 级别3
+            value: '3'
+          - icon: ''
+            label:
+              en_US: Level 4
+              ja_JP: Level 4
+              pt_BR: Nível 4
+              zh_Hans: 级别4
+            value: '4'
+          - icon: ''
+            label:
+              en_US: Level 5 (Most Accurate)
+              ja_JP: Level 5 (Most Accurate)
+              pt_BR: Nível 5 (Mais Preciso)
+              zh_Hans: 级别5（最准确）
+            value: '5'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Minimum similarity threshold for range search
+            ja_JP: Minimum similarity threshold for range search
+            pt_BR: Limite mínimo de similaridade para busca por intervalo
+            zh_Hans: 范围搜索的最小相似度阈值
+          label:
+            en_US: Search Radius
+            ja_JP: Search Radius
+            pt_BR: Raio de Busca
+            zh_Hans: 搜索半径
+          llm_description: Minimum similarity threshold for range search (used with
+            range_filter)
+          max: null
+          min: null
+          name: radius
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum similarity threshold for range search
+            ja_JP: Maximum similarity threshold for range search
+            pt_BR: Limite máximo de similaridade para busca por intervalo
+            zh_Hans: 范围搜索的最大相似度阈值
+          label:
+            en_US: Range Filter
+            ja_JP: Range Filter
+            pt_BR: Filtro de Intervalo
+            zh_Hans: 范围过滤器
+          llm_description: Maximum similarity threshold for range search (used with
+            radius)
+          max: null
+          min: null
+          name: range_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'Additional search parameters as JSON (e.g., ''{"nprobe": 16}'')'
+            ja_JP: 'Additional search parameters as JSON (e.g., ''{"nprobe": 16}'')'
+            pt_BR: 'Parâmetros de busca adicionais como JSON (ex: ''{"nprobe": 16}'')'
+            zh_Hans: '额外的搜索参数，JSON格式（例如：''{"nprobe": 16}''）'
+          label:
+            en_US: Advanced Search Parameters
+            ja_JP: Advanced Search Parameters
+            pt_BR: Parâmetros Avançados de Busca
+            zh_Hans: 高级搜索参数
+          llm_description: Additional search parameters as JSON object for fine-tuning
+            search behavior
+          max: null
+          min: null
+          name: search_params
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          anns_field: ''
+          collection_name: ''
+          filter: ''
+          level: ''
+          limit: ''
+          metric_type: ''
+          output_fields: ''
+          query_vector: ''
+          radius: ''
+          range_filter: ''
+          search_params: ''
+        plugin_id: zeroz-lab/milvus
+        plugin_unique_identifier: zeroz-lab/milvus:0.1.4@ae1e31b6454d7f8ad8e7a612aab0d7b95f3aa8be59cb1465c38ed80a5cb4bf7d
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=0b07fb7c-055d-433b-992c-17d41c4db498&filename=4745a24ffa8ec2b666e31e822b2135d4af0e5283e9dca6e04ad3b6666d9bdb31.svg
+        provider_id: zeroz-lab/milvus/milvus
+        provider_name: zeroz-lab/milvus/milvus
+        provider_type: builtin
+        selected: false
+        title: Milvus 向量搜索768维
+        tool_configurations:
+          level:
+            type: constant
+            value: 1
+          metric_type:
+            type: constant
+            value: null
+        tool_description: 在 Milvus 集合中执行向量相似度搜索
+        tool_label: Milvus 向量搜索
+        tool_name: milvus_search
+        tool_node_version: '2'
+        tool_parameters:
+          anns_field:
+            type: mixed
+            value: vector_768
+          collection_name:
+            type: mixed
+            value: hierarchical
+          filter:
+            type: mixed
+            value: '{{#1770546693704.ids#}}'
+          limit:
+            type: constant
+            value: 3
+          output_fields:
+            type: mixed
+            value: text
+          query_vector:
+            type: mixed
+            value: '{{#17705445030570.result#}}'
+          radius:
+            type: constant
+            value: null
+          range_filter:
+            type: constant
+            value: null
+          search_params:
+            type: mixed
+            value: null
+        type: tool
+      height: 85
+      id: '1770547392636'
+      position:
+        x: 1996.7245319910583
+        y: 1330.1923650495191
+      positionAbsolute:
+        x: 1996.7245319910583
+        y: 1330.1923650495191
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(arg1):\n    return {\n        \"result\": [r[\"text\"] for\
+          \ r in arg1[0][\"results\"]]\n    }\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: array[string]
+        selected: false
+        title: 768维检索结果
+        type: code
+        variables:
+        - value_selector:
+          - '1770547392636'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 39
+      id: '1770547716720'
+      position:
+        x: 2017.698138404749
+        y: 1503.124222720597
+      positionAbsolute:
+        x: 2017.698138404749
+        y: 1503.124222720597
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 96.49589822876817
+      y: -62.14938818398787
+      zoom: 0.5000000846127003
+  rag_pipeline_variables: []

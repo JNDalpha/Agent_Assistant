@@ -1,0 +1,28 @@
+# config.yaml
+agent_config:
+  max_agent_turns: 20
+  default_root_dir: '/home/Agent_Assistant/meterials'
+
+message_config:
+  supervisor_message_max_length: 10
+  output_message_max_length: 10
+  message_save_path: "/home/Agent_Assistant/conversation_history.json"
+
+llm_config:
+  api_key: "sk-3bec25d867714a8a86b32c62a355ed77"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model_name: "qwen-flash"
+  temperature: 0.7
+
+dynamic_tools_config:
+  registry_path: "/home/Agent_Assistant/tools/tools_generated/tool_registry.json"
+  tools_dir: "/home/Agent_Assistant/tools/tools_generated"
+
+tts_config:
+  model: "qwen3-tts-flash"
+  save_root_path: audio
+  host: 172.22.128.1
+  port: 50007
+
+tool_config:
+  weather_api_key: 'b804c54228bfa5db483db99df73153e5'
