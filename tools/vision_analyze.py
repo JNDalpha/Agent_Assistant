@@ -49,7 +49,7 @@ def vision_analyze(image_path: str, question: str) -> str:
     client = OpenAI(
         # 若没有配置环境变量，请用阿里云百炼API Key将下行替换为：api_key="sk-xxx",
         # 各地域的API Key不同。获取API Key：https://help.aliyun.com/zh/model-studio/get-api-key
-        api_key = api_key
+        api_key = api_key,
         # 以下为北京地域的 base_url，若使用弗吉尼亚地域模型，需要将base_url换成https://dashscope-us.aliyuncs.com/compatible-mode/v1
         # 若使用新加坡地域的模型，需将base_url替换为：https://dashscope-intl.aliyuncs.com/compatible-mode/v1
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
